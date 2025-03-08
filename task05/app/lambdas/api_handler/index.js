@@ -4,7 +4,6 @@ const { v4: uuidv4 } = require("uuid");
 const dynamoDb = new DynamoDBClient({ region: process.env.AWS_REGION });
 
 exports.handler = async (event) => {
-    try {
         const requestBody = JSON.parse(event.body);
         const newItem = {
             id: { S: uuidv4() },
@@ -22,10 +21,4 @@ exports.handler = async (event) => {
             statusCode: 201,
             body: JSON.stringify({ event: newItem })
         };
-    } catch (error) {
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: "Internal Server Error", details: error.message })
-        };
-    }
 };
