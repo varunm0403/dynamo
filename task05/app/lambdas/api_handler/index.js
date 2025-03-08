@@ -6,14 +6,6 @@ const dynamoDb = new DynamoDBClient({ region: process.env.AWS_REGION });
 exports.handler = async (event) => {
     try {
         const requestBody = JSON.parse(event.body);
-        
-        if (!requestBody.principalId || !requestBody.content) {
-            return {
-                statusCode: 400,
-                body: JSON.stringify({ error: "Missing required fields: principalId or content" })
-            };
-        }
-
         const newItem = {
             id: { S: uuidv4() },
             principalId: { N: requestBody.principalId.toString() },
