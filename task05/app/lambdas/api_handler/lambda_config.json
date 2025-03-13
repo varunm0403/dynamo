@@ -1,20 +1,19 @@
 {
   "version": "1.0",
-  "name": "demo",
-  "func_name": "handler.lambda_handler",
+  "name": "api_handler",
+  "func_name": "lambdas/api_handler/index.handler",
   "resource_type": "lambda",
-  "iam_role_name": "demo-role",
-  "runtime": "python3.10",
+  "iam_role_name": "api_handler-role",
+  "runtime": "nodejs20.x",
   "memory": 128,
   "timeout": 100,
-  "lambda_path": "lambdas\\demo",
+  "lambda_path": "lambdas\\api_handler",
   "dependencies": [],
   "event_sources": [],
-  "env_variables": {
-  "demo_table_name": "Events"
-  },
-  "publish_version": false,
+  "env_variables": {},
+  "publish_version": true,
+  "alias": "${lambdas_alias_name}",
   "url_config": {},
   "ephemeral_storage": 512,
-  "layers": []
+  "tags": {}
 }
