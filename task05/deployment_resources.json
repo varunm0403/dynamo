@@ -56,5 +56,20 @@
     "global_indexes": [],
     "autoscaling": [],
     "tags": {}
-  }
+  },
+	"${demo_table}": {
+		"resource_type": "dynamodb_table",
+		"hash_key_name": "id",
+		"hash_key_type": "N",
+		"read_capacity": 1,
+		"write_capacity": 1,
+		"global_indexes": [
+		  {
+			"name": "number-index",
+			"index_key_name": "number",
+			"index_key_type": "N"
+		  }
+		],
+		"autoscaling": []
+	  }
 }
